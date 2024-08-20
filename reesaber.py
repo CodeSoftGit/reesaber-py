@@ -4,8 +4,8 @@ import json
 
 
 def create_blur_saber(
-    modules, name="Blur Saber", scale_factor=0.1, z_offset_from=-0.17, z_offset_to=1.0,
-    saber_thickness=0.1, start_cap=True, end_cap=True, vertical_resolution=20, horizontal_resolution=10,
+    modules, name="Blur Saber", scale_factor=1.0, z_offset_from=-0.17, z_offset_to=1.0,
+    saber_thickness=1.0, start_cap=True, end_cap=True, vertical_resolution=20, horizontal_resolution=10,
     blur_frames=2.0, glow_multiplier=1.0, handle_roughness=2.0,
     handle_color=None, blade_mask_resolution=256, drivers_mask_resolution=32,
     cull_mode=0, depth_write=False, render_queue=3002,
@@ -17,66 +17,144 @@ def create_blur_saber(
 
     if handle_mask is None:
         handle_mask = {
-            "interpolationType": 2,
-            "controlPoints": [
-                {"time": 0.0, "value": 0.0},
-                {"time": 1.0, "value": 1.0}
-            ]
-        }
+              "interpolationType": 2,
+              "controlPoints": [
+                {
+                  "time": 0.0,
+                  "value": 0.0
+                },
+                {
+                  "time": 0.028,
+                  "value": 1.0
+                },
+                {
+                  "time": 0.128,
+                  "value": 0.0
+                },
+                {
+                  "time": 0.145,
+                  "value": 1.0
+                },
+                {
+                  "time": 0.17,
+                  "value": 0.0
+                }
+              ]
+            }
 
     if blade_mappings is None:
         blade_mappings = {
-            "colorOverValue": {
+              "colorOverValue": {
                 "interpolationType": 0,
-                "controlPoints": [{"time": 0.0, "value": {"r": 1.0, "g": 1.0, "b": 1.0, "a": 1.0}}]
-            },
-            "alphaOverValue": {
+                "controlPoints": [
+                  {
+                    "time": 0.0,
+                    "value": {
+                      "r": 1.0,
+                      "g": 1.0,
+                      "b": 1.0,
+                      "a": 1.0
+                    }
+                  }
+                ]
+              },
+              "alphaOverValue": {
                 "interpolationType": 0,
-                "controlPoints": [{"time": 0.0, "value": 1.0}]
-            },
-            "scaleOverValue": {
+                "controlPoints": [
+                  {
+                    "time": 0.0,
+                    "value": 1.0
+                  }
+                ]
+              },
+              "scaleOverValue": {
                 "interpolationType": 0,
-                "controlPoints": [{"time": 0.0, "value": 1.0}]
-            },
-            "valueFrom": 0.0,
-            "valueTo": 1.0
-        }
+                "controlPoints": [
+                  {
+                    "time": 0.0,
+                    "value": 1.0
+                  }
+                ]
+              },
+              "valueFrom": 0.0,
+              "valueTo": 1.0
+            }
 
     if viewing_angle_mappings is None:
         viewing_angle_mappings = {
-            "colorOverValue": {
+              "colorOverValue": {
                 "interpolationType": 0,
-                "controlPoints": [{"time": 0.0, "value": {"r": 1.0, "g": 1.0, "b": 1.0, "a": 1.0}}]
-            },
-            "alphaOverValue": {
+                "controlPoints": [
+                  {
+                    "time": 0.0,
+                    "value": {
+                      "r": 1.0,
+                      "g": 1.0,
+                      "b": 1.0,
+                      "a": 1.0
+                    }
+                  }
+                ]
+              },
+              "alphaOverValue": {
                 "interpolationType": 0,
-                "controlPoints": [{"time": 0.0, "value": 1.0}]
-            },
-            "scaleOverValue": {
+                "controlPoints": [
+                  {
+                    "time": 0.0,
+                    "value": 1.0
+                  }
+                ]
+              },
+              "scaleOverValue": {
                 "interpolationType": 0,
-                "controlPoints": [{"time": 0.0, "value": 1.0}]
-            },
-            "valueFrom": 0.0,
-            "valueTo": 1.0
-        }
+                "controlPoints": [
+                  {
+                    "time": 0.0,
+                    "value": 1.0
+                  }
+                ]
+              },
+              "valueFrom": 0.0,
+              "valueTo": 1.0
+            }
 
     if surface_angle_mappings is None:
         surface_angle_mappings = {
-            "colorOverValue": {
+              "colorOverValue": {
                 "interpolationType": 0,
-                "controlPoints": [{"time": 0.0, "value": {"r": 1.0, "g": 1.0, "b": 1.0, "a": 1.0}}]
-            },
-            "alphaOverValue": {
+                "controlPoints": [
+                  {
+                    "time": 0.0,
+                    "value": {
+                      "r": 1.0,
+                      "g": 1.0,
+                      "b": 1.0,
+                      "a": 1.0
+                    }
+                  }
+                ]
+              },
+              "alphaOverValue": {
                 "interpolationType": 0,
-                "controlPoints": [{"time": 0.0, "value": 1.0}]
-            },
-            "scaleOverValue": {
+                "controlPoints": [
+                  {
+                    "time": 0.0,
+                    "value": 1.0
+                  }
+                ]
+              },
+              "scaleOverValue": {
                 "interpolationType": 0,
-                "controlPoints": [{"time": 0.0, "value": 1.0}]
-            },
-            "valueFrom": 0.0,
-            "valueTo": 1.0
-        }
+                "controlPoints": [
+                  {
+                    "time": 0.0,
+                    "value": 1.0
+                  }
+                ]
+              },
+              "valueFrom": 0.0,
+              "valueTo": 1.0
+            }
 
     if local_transform is None:
         local_transform = {
@@ -134,7 +212,7 @@ def create_blur_saber(
                     "driversSampleMode": drivers_sample_mode,
                     "viewingAngleMappings": viewing_angle_mappings,
                     "surfaceAngleMappings": surface_angle_mappings,
-                    "drivers": []
+                    "drivers": [] # TODO: Add driver support
                 }
             },
             "Enabled": True,
