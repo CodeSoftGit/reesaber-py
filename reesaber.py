@@ -3,8 +3,8 @@ import colorama
 import json
 
 
-def create_blur_saber_object(
-    name="Blur Saber", scale_factor=0.1, z_offset_from=-0.17, z_offset_to=1.0,
+def create_blur_saber(
+    modules, name="Blur Saber", scale_factor=0.1, z_offset_from=-0.17, z_offset_to=1.0,
     saber_thickness=0.1, start_cap=True, end_cap=True, vertical_resolution=20, horizontal_resolution=10,
     blur_frames=2.0, glow_multiplier=1.0, handle_roughness=2.0,
     handle_color=None, blade_mask_resolution=256, drivers_mask_resolution=32,
@@ -106,7 +106,7 @@ def create_blur_saber_object(
                     ]
                 }
 
-    return {
+    modules.append({
         "ModuleId": "reezonate.blur-saber",
         "Version": 1,
         "Config": {
@@ -141,7 +141,8 @@ def create_blur_saber_object(
             "Name": name,
             "LocalTransform": local_transform
             }
-        }
+        })
+    return modules
 
 def export(modules, save_to):
     saber_json = {
