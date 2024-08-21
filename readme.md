@@ -17,5 +17,7 @@ create_blur_saber(
 ) -> Returns the updated module list
 
 export(modules, save_to) -> Saves the final ReeSaber preset to a file (save_to is the file path)
+
+configLog(level=logging.INFO, filename=datetime.datetime.now() + " - ReeSaber Python.log") -> Configure logging
 ## License
  <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">Reesaber Python</span> by <span property="cc:attributionName">CodeSoft</span> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p> 

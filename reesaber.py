@@ -1,7 +1,11 @@
 from PIL import ImageFont, Image, ImageDraw
+import datetime
 import colorama
+import logging
 import json
 
+def configLog(level=logging.INFO, filename="ReeSaber Python.log"):
+    logging.basicConfig(filename=filename, level=level, format='%(asctime)s - [%(levelname)s] - %(message)s')
 
 def create_blur_saber(
     modules, name="Blur Saber", scale_factor=1.0, z_offset_from=-0.17, z_offset_to=1.0,
@@ -237,4 +241,4 @@ def export(modules, save_to):
         with open(save_to, "w") as f:
             f.write(json.dumps(saber_json, indent=2))
     except Exception as e:
-        print(f"An error occurred while saving this ReeSaber preset, see below.\n{colorama.Fore.RED}[ERROR]{colorama.Style.RESET_ALL} {e}")
+        logging.error(f"export(): {e}")
