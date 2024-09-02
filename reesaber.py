@@ -1,9 +1,7 @@
-import datetime
-import colorama
 import logging
 import json
 
-experimental = True
+experimental = False
 if experimental:
     print(
         "This is an experimental version, expect bugs. Do not report them to the issues tab!\n"
@@ -200,50 +198,48 @@ def create_blur_saber(
             "controlPoints": [{"time": 0.0, "value": 1.0}, {"time": 1.0, "value": 1.0}],
         }
 
-    modules.append(
-        {
-            "ModuleId": "reezonate.blur-saber",
-            "Version": 1,
-            "Config": {
-                "SaberSettings": {
-                    "zOffsetFrom": z_offset_from,
-                    "zOffsetTo": z_offset_to,
-                    "thickness": saber_thickness,
-                    "saberProfile": saber_profile,
-                    "startCap": start_cap,
-                    "endCap": end_cap,
-                    "verticalResolution": vertical_resolution,
-                    "horizontalResolution": horizontal_resolution,
-                    "renderQueue": render_queue,
-                    "cullMode": cull_mode,
-                    "depthWrite": depth_write,
-                    "blurFrames": blur_frames,
-                    "glowMultiplier": glow_multiplier,
-                    "handleRoughness": handle_roughness,
-                    "handleColor": handle_color,
-                    "maskSettings": {
-                        "bladeMaskResolution": blade_mask_resolution,
-                        "driversMaskResolution": drivers_mask_resolution,
-                        "handleMask": handle_mask,
-                        "bladeMappings": blade_mappings,
-                        "driversSampleMode": drivers_sample_mode,
-                        "viewingAngleMappings": viewing_angle_mappings,
-                        "surfaceAngleMappings": surface_angle_mappings,
-                        "drivers": [          #! VERY EXPERIMENTAL!! May not work correctly
-                            dict(drivers[0]),
-                            dict(drivers[1]),
-                            dict(drivers[2]),
-                            dict(drivers[3]),
-                        ],
-                    },
+    toReturn = {
+        "ModuleId": "reezonate.blur-saber",
+        "Version": 1,
+        "Config": {
+            "SaberSettings": {
+                "zOffsetFrom": z_offset_from,
+                "zOffsetTo": z_offset_to,
+                "thickness": saber_thickness,
+                "saberProfile": saber_profile,
+                "startCap": start_cap,
+                "endCap": end_cap,
+                "verticalResolution": vertical_resolution,
+                "horizontalResolution": horizontal_resolution,
+                "renderQueue": render_queue,
+                "cullMode": cull_mode,
+                "depthWrite": depth_write,
+                "blurFrames": blur_frames,
+                "glowMultiplier": glow_multiplier,
+                "handleRoughness": handle_roughness,
+                "handleColor": handle_color,
+                "maskSettings": {
+                    "bladeMaskResolution": blade_mask_resolution,
+                    "driversMaskResolution": drivers_mask_resolution,
+                    "handleMask": handle_mask,
+                    "bladeMappings": blade_mappings,
+                    "driversSampleMode": drivers_sample_mode,
+                    "viewingAngleMappings": viewing_angle_mappings,
+                    "surfaceAngleMappings": surface_angle_mappings,
+                    "drivers": [  #! VERY EXPERIMENTAL!! May not work correctly
+                        dict(drivers[0]),
+                        dict(drivers[1]),
+                        dict(drivers[2]),
+                        dict(drivers[3]),
+                    ],
                 },
-                "Enabled": True,
-                "Name": name,
-                "LocalTransform": local_transform,
             },
-        }
-    )
-    return modules
+            "Enabled": True,
+            "Name": name,
+            "LocalTransform": local_transform,
+        },
+    }
+    return toReturn
 
 
 def export(modules, save_to):
