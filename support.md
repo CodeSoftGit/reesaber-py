@@ -6,16 +6,9 @@
 ## Modules
 | Module        | Support |
 |---------------|---|
-| Blur Saber    |⚠|
-| Trail         |❌|
+| Blur Saber    |✅|
+| Trail         |✅|
 | Points VFX    |❌|
 | Sparks VFX    |❌|
 | Ribbons VFX   |❌|
-| Vanilla Saber |❌|
-
-## BlurSaber Support
-|Option|Support|
-|---------------|---|
-|Mesh|✅|
-|Material|✅|
-|Drivers|❌|
+| Vanilla Saber |✅|
