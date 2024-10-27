@@ -8,34 +8,33 @@ Create an empty list variable, this will store every module. At the start of eve
 
 ### Functions:
 ```python
-def create_trail(
-    name="Simple Trail",
+def create_blur_saber(
+    name="Blur Saber",
     scale_factor=1.0,
-    length=0.16,
-    trail_type=1,
-    horizontal_res=4,
-    vertical_res=60,
-    material_type=1,
-    offset=1.0,
-    width=1.0,
-    mask_res=128,
-    driver_mask_res=32,
-    render_queue=3000,
-    anim_layout=None,
-    length_mappings=None,
-    width_mappings=None,
+    z_offset_from=-0.17,
+    z_offset_to=1.0,
+    saber_thickness=1.0,
+    start_cap=True,
+    end_cap=True,
+    vertical_resolution=20,
+    horizontal_resolution=10,
+    blur_frames=2.0,
+    glow_multiplier=1.0,
+    handle_roughness=2.0,
+    handle_color=None,
+    blade_mask_resolution=256,
+    drivers_mask_resolution=32,
+    cull_mode=0,
+    depth_write=False,
+    render_queue=3002,
+    handle_mask=None,
+    blade_mappings=None,
     drivers_sample_mode=0,
-    always_on_top=False,
-    blending_mode=0,
     viewing_angle_mappings=None,
     surface_angle_mappings=None,
     local_transform=None,
-    drivers=[
-        Driver(None, None),
-        Driver(None, None),
-        Driver(None, None),
-        Driver(None, None),
-    ],
+    saber_profile=None,
+    drivers=None,
 )
 # Returns the module's JSON to be appended to the modules list
 ```
@@ -62,12 +61,7 @@ create_trail(
     viewing_angle_mappings=None,
     surface_angle_mappings=None,
     local_transform=None,
-    drivers=[
-        Driver(None, None),
-        Driver(None, None),
-        Driver(None, None),
-        Driver(None, None),
-    ],
+    drivers=None,
 )
 # Returns the module's JSON to be appended to the modules list
 ```
