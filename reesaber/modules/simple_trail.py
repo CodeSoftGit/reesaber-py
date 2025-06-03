@@ -1,7 +1,7 @@
 """SimpleTrail module for ReeSaber configurations."""
 
 from typing import Any, Dict, List, Optional
-from pydantic import Field, Literal
+from pydantic import Field
 
 from reesaber.models.base import Color
 from reesaber.models.control import CompositeMappings, ControlPoint

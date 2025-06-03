@@ -1,6 +1,7 @@
 """VanillaSaber module for ReeSaber configurations."""
 
-from pydantic import Field, Literal
+from pydantic import Field
+from typing import Dict, Any
 
 from reesaber.modules.base import ModuleBase, SaberModule
 

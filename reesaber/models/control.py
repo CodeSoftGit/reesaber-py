@@ -1,7 +1,7 @@
 """Control point and interpolation models for ReeSaber configurations."""
 
 from enum import IntEnum
-from typing import Any, Dict, List, Union
+from typing import Any, Dict, List, Union, Optional
 from pydantic import BaseModel, Field
 
 from reesaber.models.base import Color
